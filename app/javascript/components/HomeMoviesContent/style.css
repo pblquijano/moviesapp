@@ -1,0 +1,11 @@
+.homeMoviesContent {
+	width: 100%;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.homeMoviesContent .moviesGridContainer {
+	margin: 16px 0;
+	padding: 0 10px;
+}

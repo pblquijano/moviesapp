@@ -1,0 +1,20 @@
+.myContainer {
+	width: calc(100% - 32px);
+	margin: 16px;
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+	.myContainer {
+		width: 800px;
+		margin: 16px auto;
+	}
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+	.myContainer {
+		width: 1100px;
+		margin: 16px auto;
+	}
+}

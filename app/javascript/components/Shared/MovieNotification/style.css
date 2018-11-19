@@ -1,0 +1,56 @@
+.movieNotificationContainer {
+	position: fixed;
+	display: block;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #fff;
+	z-index: 2;
+	overflow: hidden;
+	height: 0;
+	opacity: 0;
+	transition: height 0ms 400ms, opacity 400ms 0ms;
+}
+
+.movieNotificationContainer.active {
+	height: 100%;
+	opacity: 1;
+	transition: height 0ms 0ms, opacity 600ms 0ms;
+}
+.dataCenterContainer {
+	position: absolute;
+	width: 200px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	margin: 0;
+}
+
+.dataCenterContainer .title {
+	display: block;
+	font-family: 'Roboto-Light';
+	font-size: 30px;
+	line-height: 30px;
+	color: #3f51b5;
+	margin: 0;
+}
+.dataCenterContainer.success .title {
+	color: #4caf50;
+}
+.dataCenterContainer.error .title {
+	color: #f44336;
+}
+
+.dataCenterContainer .message {
+	display: block;
+	font-family: 'Roboto-Regular';
+	font-size: 16px;
+	line-height: 20px;
+	color: #424242;
+	margin-top: 12px;
+}
+.dataCenterContainer button {
+	margin-top: 18px;
+}

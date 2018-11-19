@@ -1,0 +1,168 @@
+.moviesListContainer {
+	width: 100%;
+	overflow-y: auto;
+	border-radius: 20px 20px 0 0;
+	background: #eceff1;
+}
+.movieListItemContainer {
+	padding: 6px 16px;
+	border-bottom: solid 1px #ccc;
+}
+.movieListItemContainer .text {
+	margin: 12px 0;
+}
+.movieListItemContainer .moviePictureContainer {
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	margin: 8px 16px 8px 0;
+}
+.movieListItemContainer .movieRentPriceContainer {
+	margin: 0 16px;
+}
+.rentData {
+	height: auto;
+}
+
+.container {
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 18px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	transition: all 0.2s linear;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	background-color: #c5cae9;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+	background-color: #9fa8da;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+	background-color: #3f51b5;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+	content: '';
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+	display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.rentResumeContainer {
+	width: 100%;
+	padding: 16px;
+	border-radius: 0 0 20px 20px;
+	background: #fff9c4;
+	font-family: 'Roboto-Regular';
+	font-size: 14px;
+}
+.rentResumeContainer .resumeList {
+	height: calc(100% - 24px);
+	overflow-y: auto;
+}
+.rentResumeContainer .totalContainer {
+	border-top: solid 1px rgba(0, 0, 0, 0.3);
+	margin-top: 6px;
+	font-family: 'Roboto-Bold';
+	font-size: 14px;
+}
+.rentData .movieTitleContainer .title {
+	font-size: 20px;
+}
+.rentData .movieTitleContainer .genre {
+	font-size: 13px;
+}
+.rentData .movieRentPriceContainer .price {
+	font-size: 13px;
+	line-height: 13px;
+}
+.rentData .movieListItemContainer .moviePictureContainer {
+	width: 48px;
+	height: 48px;
+	margin: 8px 8px 8px 0;
+}
+
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+	.rentData {
+		height: calc(100vh - 96px);
+	}
+	.moviesListContainer {
+		width: calc(100% - 232px);
+		border-radius: 20px 0 0 20px;
+	}
+	.rentResumeContainer {
+		width: 200px;
+		border-radius: 0px 20px 20px 0px;
+	}
+}
+@media (min-width: 992px) {
+	.checkmark {
+		height: 25px;
+		width: 25px;
+	}
+	.container {
+		font-size: 22px;
+	}
+	.rentData .movieTitleContainer .title {
+		font-size: 24px;
+	}
+	.rentData .movieGenreContainer .genre {
+		font-size: 14px;
+	}
+	.rentData .movieRentPriceContainer .price {
+		font-size: 14px;
+		line-height: 14px;
+	}
+	.rentData .movieListItemContainer .moviePictureContainer {
+		width: 64px;
+		height: 64px;
+		margin: 8px 16px 8px 0;
+	}
+}

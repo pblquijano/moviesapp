@@ -1,0 +1,15 @@
+.movieRentPriceContainer {
+	display: block;
+	text-align: center;
+	background: #43a047;
+	padding: 4px 6px;
+	border-radius: 4px;
+}
+
+.movieRentPriceContainer .price {
+	font-family: 'Roboto-Bold';
+	font-size: 14px;
+	line-height: 14px;
+	color: #fff;
+	margin: 0;
+}

@@ -1,0 +1,38 @@
+@font-face {
+	font-family: 'Roboto-Regular';
+	src: url('fonts/Roboto-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Roboto-Light';
+	src: url('fonts/Roboto-Light.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Roboto-Bold';
+	src: url('fonts/Roboto-Bold.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+html,
+body {
+	position: relative;
+	width: 100%;
+}
+body {
+	background: #f8f9fa;
+	margin: 0;
+}
+.row {
+	margin: 0;
+}
+
+.card {
+	position: relative;
+	padding: 16px;
+	border-radius: 4px;
+	background: #fff;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}

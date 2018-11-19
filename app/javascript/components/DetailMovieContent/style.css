@@ -1,0 +1,57 @@
+.moviesDetailsContainer .movieRentPriceContainer {
+	margin: 6px auto 0;
+	width: calc(200px - 12px);
+}
+
+.movieInfoContainer {
+	margin-top: 8px;
+	background: gainsboro;
+	padding: 16px;
+}
+.moviesDetailsContainer .movieTitleContainer .title {
+	font-size: 32px;
+	line-height: 32px;
+}
+.moviesDetailsContainer .genre {
+	font-size: 16px;
+}
+
+.moviesDetailsContainer .moviePictureContainer {
+	margin: auto;
+}
+.moviesDetailsContainer .details {
+	padding-left: 0px;
+	margin-top: 6px;
+}
+.moviesDetailsContainer .divider {
+	display: block;
+	height: 1px;
+	margin: 16px 0;
+	background: rgba(0, 0, 0, 0.2);
+}
+.movieInfoContainer span {
+	font-family: 'Roboto-Regular';
+	font-size: 16px;
+	line-height: 20px;
+	color: #212121;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+	.moviesDetailsContainer .moviePictureContainer {
+		margin: 0;
+	}
+	.moviesDetailsContainer .movieRentPriceContainer {
+		margin: 6px 0 0;
+	}
+	.moviesDetailsContainer .details {
+		padding-left: 32px;
+	}
+	.moviesDetailsContainer .divider {
+		display: none;
+	}
+}

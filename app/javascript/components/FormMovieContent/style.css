@@ -1,0 +1,156 @@
+.movieForm {
+	width: 100%;
+}
+
+.movieForm .movieRentPriceContainer {
+	margin: 6px auto 0;
+	width: calc(200px - 12px);
+}
+
+.movieInfoContainer {
+	margin-top: 8px;
+	background: gainsboro;
+	padding: 16px;
+}
+.movieForm .movieTitleContainer .title {
+	font-size: 32px;
+	line-height: 32px;
+}
+.movieForm .genre {
+	font-size: 16px;
+}
+
+.movieForm .moviePictureContainer {
+	margin: auto;
+}
+.movieForm .form {
+	width: 100%;
+	padding-left: 0px;
+	margin-top: 6px;
+}
+.movieForm .inputContainer {
+	width: 100%;
+	margin: 0;
+	margin-bottom: 8px;
+}
+.movieForm .divider {
+	display: block;
+	height: 1px;
+	margin: 16px 0;
+	background: rgba(0, 0, 0, 0.2);
+}
+.textareaContainer {
+	width: 100%;
+	position: relative;
+	padding-left: 0;
+	margin-bottom: 14px;
+}
+.textareaContainer .textareaLabel {
+	position: absolute;
+	top: 0px;
+	display: block;
+	font-family: 'Roboto-Regular';
+	font-size: 14px;
+	font-weight: 500;
+	color: #7986cb;
+}
+.textareaContainer textarea {
+	font-family: 'Roboto-Regular';
+	display: inline-block;
+	color: #fff;
+	font-size: 16px;
+	padding: 6px;
+	width: 100%;
+	box-sizing: border-box;
+	background-color: #7986cb;
+	border: none;
+	outline: none;
+	border-radius: 2px;
+	transition: background-color 0.5s ease;
+
+	margin-top: 18px;
+	resize: none;
+}
+
+.textareaContainer textarea:focus {
+	background-color: #5c6bc0;
+}
+
+textarea:focus + .textareaLabel {
+	color: #3f51b5;
+}
+
+.fileUploader .fileContainer {
+	box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0);
+	padding: 0;
+	margin: 0 auto;
+}
+.fileUploader .fileContainer .chooseFileButton {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	min-height: 36px;
+	min-width: 88px;
+	line-height: 36px;
+	vertical-align: middle;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	text-align: center;
+	border-radius: 2px;
+	box-sizing: border-box;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	outline: none;
+	border: 0;
+	padding: 0 6px;
+	margin: 6px 0;
+	background: transparent;
+	color: currentColor;
+	white-space: nowrap;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 14px;
+	font-family: 'Roboto-Bold';
+	text-decoration: none;
+	overflow: hidden;
+	-webkit-transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+	color: #3f51b5;
+}
+.fileUploader .fileContainer .chooseFileButton:hover {
+	background-color: rgba(158, 158, 158, 0.2);
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+	.movieForm .inputContainer {
+		width: 200px;
+		margin: 0 16px 0 0;
+		margin-bottom: 14px;
+	}
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+	.movieForm .moviePictureContainer {
+		margin: 0;
+	}
+	.movieForm .movieRentPriceContainer {
+		margin: 6px 0 0;
+	}
+	.movieForm .form {
+		padding-left: 32px;
+	}
+	.movieForm .divider {
+		display: none;
+	}
+	.textareaContainer {
+		padding-left: 16px;
+	}
+	.movieForm .inputContainer {
+		margin: 0 16px;
+		margin-bottom: 14px;
+	}
+}
