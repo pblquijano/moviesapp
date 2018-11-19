@@ -13,3 +13,44 @@
  *= require_tree .
  *= require_self
  */
+@font-face {
+	font-family: 'Roboto-Bold';
+	src: url('Roboto-Bold.eot');
+	src: url('Roboto-Bold.eot?#iefix') format('embedded-opentype'), url('Roboto-Bold.woff2') format('woff2'), url('Roboto-Bold.woff') format('woff'),
+		url('Roboto-Bold.ttf') format('truetype'), url('Roboto-Bold.svg#Roboto-Bold') format('svg');
+}
+
+@font-face {
+	font-family: 'Roboto-Regular';
+	src: url('Roboto-Regular.eot');
+	src: url('Roboto-Regular.eot?#iefix') format('embedded-opentype'), url('Roboto-Regular.woff2') format('woff2'), url('Roboto-Regular.woff') format('woff'),
+		url('Roboto-Regular.ttf') format('truetype'), url('Roboto-Regular.svg#Roboto-Regular') format('svg');
+}
+
+@font-face {
+	font-family: 'Roboto-Light';
+	src: url('Roboto-Light.eot');
+	src: url('Roboto-Light.eot?#iefix') format('embedded-opentype'), url('Roboto-Light.woff2') format('woff2'), url('Roboto-Light.woff') format('woff'),
+		url('Roboto-Light.ttf') format('truetype'), url('Roboto-Light.svg#Roboto-Light') format('svg');
+}
+
+html,
+body {
+	position: relative;
+	width: 100%;
+}
+body {
+	background: #f8f9fa;
+	margin: 0;
+}
+.row {
+	margin: 0;
+}
+
+.card {
+	position: relative;
+	padding: 16px;
+	border-radius: 4px;
+	background: #fff;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
