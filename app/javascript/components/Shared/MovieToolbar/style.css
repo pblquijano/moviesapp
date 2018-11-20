@@ -139,12 +139,18 @@
 .movieToolbarContainer .backdrop.show {
 	display: block;
 }
+.movieToolbarContainer .signout {
+	display: none;
+}
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 	.movieToolbarContainer .dropdown {
 		display: none;
 	}
 	.movieToolbarContainer .toolbarButton {
+		display: inline-block;
+	}
+	.movieToolbarContainer .signout {
 		display: inline-block;
 	}
 }

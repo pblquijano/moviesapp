@@ -9,6 +9,10 @@ import RentMovieContent from './RentMovieContent';
 import My404Component from './My404Component';
 
 class RouterMovies extends React.Component {
+	constructor(props) {
+		super(props);
+		console.log(this.props);
+	}
 	render() {
 		return (
 			<Router>
@@ -19,7 +23,7 @@ class RouterMovies extends React.Component {
 					<Route exact path="/edit/:id" component={FormMovieContent} />
 					<Route exact path="/rent_a_movie" component={RentMovieContent} />
 					<Route exact path="/rent_a_movie/:id" component={RentMovieContent} />
-					<Route exact path="/login" component={LoginMovieContent} />
+
 					<Route component={My404Component} />
 				</Switch>
 			</Router>
@@ -27,7 +31,4 @@ class RouterMovies extends React.Component {
 	}
 }
 
-RouterMovies.propTypes = {
-	greeting: PropTypes.string
-};
 export default RouterMovies;

@@ -7,6 +7,8 @@ const CHANGE_EVENT = 'change';
 
 let _store = {
 	list: [],
+	users_list: [],
+	user_signed_in: false,
 	response: {
 		isSuccess: true,
 		message: ''
@@ -17,6 +19,15 @@ const _setList = array => {
 };
 const _addMovie = movie => {
 	_store.list.push = movie;
+};
+const _addUser = user => {
+	_store.users_list.push = user.email;
+};
+const _signIn = () => {
+	_store.user_signed_in = true;
+};
+const _signOut = () => {
+	_store.user_signed_in = false;
 };
 const _setError = message => {
 	_store.response.isSuccess = false;
@@ -111,6 +122,21 @@ const MoviesStore = ObjectAssign({}, EventEmitter.prototype, {
 			case MovieActionTypes.DELETE_MOVIE_RESPONSE:
 				_setSuccess();
 				_deleteMovie(action.response);
+				MoviesStore.emitChange();
+				break;
+			case MovieActionTypes.SIGN_IN_RESPONSE:
+				_setSuccess();
+				_signIn();
+				MoviesStore.emitChange();
+				break;
+			case MovieActionTypes.SIGN_OUT_RESPONSE:
+				_setSuccess();
+				_signOut();
+				MoviesStore.emitChange();
+				break;
+			case MovieActionTypes.SIGN_UP_RESPONSE:
+				_setSuccess();
+				_addUser(action.response);
 				MoviesStore.emitChange();
 				break;
 		}

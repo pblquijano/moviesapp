@@ -8,13 +8,13 @@ import MovieActions from '../../flux/MovieActions';
 import MovieLoading from '../Shared/MovieLoading';
 import MovieNotification from '../Shared/MovieNotification';
 
-class LoginMovieContent extends Component {
+class RegisterMovieContent extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			email: '',
 			password: '',
-			remember_me: false,
+			password_confirmation: '',
 			isShowLoading: false,
 			message: 'Sending data...',
 			notification: {
@@ -36,9 +36,9 @@ class LoginMovieContent extends Component {
 		this._isunmounted = true;
 		MoviesStore.removeChangeListener(this._onChange);
 	}
-	goToHome() {
+	goToSignIn() {
 		return () => {
-			location.href = '/';
+			location.href = '/users/sign_in';
 		};
 	}
 	_onChange() {
@@ -51,6 +51,8 @@ class LoginMovieContent extends Component {
 				} else {
 					this.setState({
 						isShowLoading: false,
+						password: '',
+						password_confirmation: '',
 						notification: {
 							isShowLoading: true,
 							title: 'Error',
@@ -80,35 +82,34 @@ class LoginMovieContent extends Component {
 			user: {
 				email: this.state.email,
 				password: this.state.password,
-				remember_me: this.state.remember_me
+				password_confirmation: this.state.password_confirmation
 			}
 		};
-		MovieActions.signIn(body);
+		MovieActions.signUp(body);
 	}
 
-	goToSignUp() {
-		return () => {
-			location.href = '/users/sign_up';
-		};
-	}
 	render() {
 		return (
 			<div className="loginMoviesContent">
 				<img className="myBackground" src={MyImage} />
 				<div className="col-xs" />
 				<div className="card">
-					<h1 className="title">Movies App</h1>
+					<h1 className="title">New User</h1>
 					<form onSubmit={this.handleSubmit}>
 						<MovieInput label="Email" type="email" name="email" handleChange={this.handleChange} value={this.state.email} />
 						<MovieInput label="Password" type="password" name="password" handleChange={this.handleChange} value={this.state.password} />
-						<label id="remember_me">
-							Remember me:
-							<input name="remember_me" type="checkbox" checked={this.state.remember_me} onChange={this.handleChange} />
-						</label>
+						<MovieInput
+							label="Confirm Password"
+							type="password"
+							name="password_confirmation"
+							handleChange={this.handleChange}
+							value={this.state.password_confirmation}
+						/>
+
 						<div className="row center-xs">
-							<MovieButton type="button" value="New User" style_type="flat" action={this.goToSignUp()} />
+							<MovieButton type="button" value="Sign in" style_type="flat" action={this.goToSignIn()} />
 							<div className="col-xs" />
-							<MovieButton type="submit" value="Login" style_type="raised" />
+							<MovieButton type="submit" value="Save User" style_type="raised" />
 						</div>
 					</form>
 				</div>
@@ -126,4 +127,4 @@ class LoginMovieContent extends Component {
 	}
 }
 
-export default LoginMovieContent;
+export default RegisterMovieContent;

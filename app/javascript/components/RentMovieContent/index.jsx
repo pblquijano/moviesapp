@@ -8,6 +8,7 @@ import MovieLoading from '../Shared/MovieLoading';
 import MovieNotification from '../Shared/MovieNotification';
 import MoviesStore from '../../flux/MoviesStore';
 import MovieActions from '../../flux/MovieActions';
+import MovieActionTypes from '../../flux/MovieActionTypes';
 
 import { withRouter } from 'react-router-dom';
 
@@ -15,7 +16,7 @@ class RentMovieContent extends Component {
 	constructor(props) {
 		super(props);
 		this.history = this.props.history;
-
+		this.action_name = '';
 		this.state = {
 			message: 'Loading movies...',
 			isShowLoading: true,
@@ -57,7 +58,6 @@ class RentMovieContent extends Component {
 							}
 						})
 							.then(response => {
-								console.log(response);
 								if (response.ok) {
 									return response.json();
 								}
@@ -66,7 +66,6 @@ class RentMovieContent extends Component {
 								});
 							})
 							.then(resp => {
-								console.log('added', resp);
 								setTimeout(() => {
 									if (resp.code === 200) {
 										this.setState({
@@ -109,7 +108,7 @@ class RentMovieContent extends Component {
 	}
 	componentDidMount() {
 		MoviesStore.addChangeListener(this._onChange.bind(this));
-		MovieActions.getAll();
+		this.action_name = MovieActions.getAll();
 	}
 	componentWillUnmount() {
 		this._isunmounted = true;
@@ -118,35 +117,37 @@ class RentMovieContent extends Component {
 	_onChange() {
 		setTimeout(() => {
 			if (!this._isunmounted) {
-				let response = MoviesStore.getResponse();
-				if (response.isSuccess) {
-					const data = MoviesStore.getList();
-					let total = 0;
-					let movies_selected_temp = [];
-					const movies_temp = data.map(movie => {
-						let movie_temp = movie;
-						if (this.id && parseInt(this.id) === parseInt(movie_temp.id)) {
-							movies_selected_temp.push(movie);
-							movie_temp.selected = true;
-							total += parseFloat(movie.price);
-						} else {
-							movie_temp.selected = false;
-						}
-						return movie_temp;
-					});
-					this.setState({ movies: movies_temp, isShowLoading: false, movies_selected: movies_selected_temp, total: total });
-				} else {
-					this.setState({
-						isShowLoading: false,
-						movies: [],
-						notification: {
-							isShowLoading: true,
-							title: 'Error',
-							message: response.message ? response.message : 'Server Error',
-							action: () => this.setState({ notification: { isShowLoading: false } }),
-							type: 'error'
-						}
-					});
+				if (this.action_name == MovieActionTypes.GET_ALL) {
+					let response = MoviesStore.getResponse();
+					if (response.isSuccess) {
+						const data = MoviesStore.getList();
+						let total = 0;
+						let movies_selected_temp = [];
+						const movies_temp = data.map(movie => {
+							let movie_temp = movie;
+							if (this.id && parseInt(this.id) === parseInt(movie_temp.id)) {
+								movies_selected_temp.push(movie);
+								movie_temp.selected = true;
+								total += parseFloat(movie.price);
+							} else {
+								movie_temp.selected = false;
+							}
+							return movie_temp;
+						});
+						this.setState({ movies: movies_temp, isShowLoading: false, movies_selected: movies_selected_temp, total: total });
+					} else {
+						this.setState({
+							isShowLoading: false,
+							movies: [],
+							notification: {
+								isShowLoading: true,
+								title: 'Error',
+								message: response.message ? response.message : 'Server Error',
+								action: () => this.setState({ notification: { isShowLoading: false } }),
+								type: 'error'
+							}
+						});
+					}
 				}
 			}
 		}, 900);

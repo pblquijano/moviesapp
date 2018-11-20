@@ -29,6 +29,8 @@ config.webpacker.check_yarn_integrity = true
     config.cache_store = :null_store
   end
 
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
@@ -47,6 +49,8 @@ config.webpacker.check_yarn_integrity = true
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+
+
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

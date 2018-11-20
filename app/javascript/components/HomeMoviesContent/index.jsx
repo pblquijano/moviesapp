@@ -7,11 +7,12 @@ import MoviesGrid from './MoviesGrid';
 import { withRouter } from 'react-router-dom';
 import MovieLoading from '../Shared/MovieLoading';
 import MovieNotification from '../Shared/MovieNotification';
+import MovieActionTypes from '../../flux/MovieActionTypes';
 
 class HomeMoviesContent extends Component {
 	constructor(props) {
 		super(props);
-
+		this.action_name = '';
 		this.history = props.history;
 		this.buttons = [
 			{ name: 'Rent Movies', action: () => this.props.history.push('/rent_a_movie') },
@@ -31,7 +32,7 @@ class HomeMoviesContent extends Component {
 	}
 	componentDidMount() {
 		MoviesStore.addChangeListener(this._onChange.bind(this));
-		MovieActions.getAll();
+		this.action_name = MovieActions.getAll();
 	}
 
 	componentWillUnmount() {
@@ -42,21 +43,23 @@ class HomeMoviesContent extends Component {
 	_onChange() {
 		setTimeout(() => {
 			if (!this._isunmounted) {
-				let response = MoviesStore.getResponse();
-				if (response.isSuccess) {
-					this.setState({ movies: MoviesStore.getList(), isShowLoading: false });
-				} else {
-					this.setState({
-						isShowLoading: false,
-						movies: [],
-						notification: {
-							isShowLoading: true,
-							title: 'Error',
-							message: response.message ? response.message : 'Server Error',
-							action: () => this.setState({ notification: { isShowLoading: false } }),
-							type: 'error'
-						}
-					});
+				if (this.action_name == MovieActionTypes.GET_ALL) {
+					let response = MoviesStore.getResponse();
+					if (response.isSuccess) {
+						this.setState({ movies: MoviesStore.getList(), isShowLoading: false });
+					} else {
+						this.setState({
+							isShowLoading: false,
+							movies: [],
+							notification: {
+								isShowLoading: true,
+								title: 'Error',
+								message: response.message ? response.message : 'Server Error',
+								action: () => this.setState({ notification: { isShowLoading: false } }),
+								type: 'error'
+							}
+						});
+					}
 				}
 			}
 		}, 900);

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}  
   resources :movies
   
   post '/make_a_rent', to: 'movies#make_a_rent'

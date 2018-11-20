@@ -29,7 +29,6 @@ const MoviesApiUtils = {
 			});
 	},
 	editMovie: function(id, body) {
-		console.log(body);
 		request
 			.put('/movies/' + id)
 			.send(body)
@@ -44,7 +43,6 @@ const MoviesApiUtils = {
 			});
 	},
 	addMovie: function(body) {
-		console.log(body);
 		request
 			.post('/movies')
 			.send(body)
@@ -68,6 +66,47 @@ const MoviesApiUtils = {
 					MovieServerActions.showError(err);
 				} else {
 					MovieServerActions.deleteMovie(id);
+				}
+			});
+	},
+	signIn: function(body) {
+		request
+			.post('/users/sign_in')
+			.send(body)
+			.use(noCache)
+			.set('Accept', 'application/json')
+			.end(function(err, response) {
+				if (err) {
+					MovieServerActions.showError(err);
+				} else {
+					MovieServerActions.signIn();
+				}
+			});
+	},
+	signOut: function() {
+		request
+			.delete('/users/sign_out')
+			.use(noCache)
+			.set('Accept', 'application/json')
+			.end(function(err, response) {
+				if (err) {
+					MovieServerActions.showError(err);
+				} else {
+					MovieServerActions.signOut();
+				}
+			});
+	},
+	signUp: function(body) {
+		request
+			.post('/users')
+			.send(body)
+			.use(noCache)
+			.set('Accept', 'application/json')
+			.end(function(err, response) {
+				if (err) {
+					MovieServerActions.showError(err);
+				} else {
+					MovieServerActions.signUp(body);
 				}
 			});
 	}

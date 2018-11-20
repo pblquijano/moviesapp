@@ -3,7 +3,6 @@ import AppDispatcher from './AppDispatcher';
 
 const MovieServerActions = {
 	showError: response => {
-		console.log(response);
 		AppDispatcher.handleServerAction({
 			actionType: MovieActionTypes.HANDLE_ERROR,
 			response: response
@@ -36,6 +35,24 @@ const MovieServerActions = {
 	deleteMovie: response => {
 		AppDispatcher.handleServerAction({
 			actionType: MovieActionTypes.DELETE_MOVIE_RESPONSE,
+			response: response
+		});
+	},
+	signIn: response => {
+		AppDispatcher.handleServerAction({
+			actionType: MovieActionTypes.SIGN_IN_RESPONSE,
+			response: response
+		});
+	},
+	signOut: response => {
+		AppDispatcher.handleServerAction({
+			actionType: MovieActionTypes.SIGN_OUT_RESPONSE,
+			response: response
+		});
+	},
+	signUp: response => {
+		AppDispatcher.handleServerAction({
+			actionType: MovieActionTypes.SIGN_UP_RESPONSE,
 			response: response
 		});
 	}

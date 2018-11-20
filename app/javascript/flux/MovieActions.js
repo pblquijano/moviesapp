@@ -37,6 +37,27 @@ const MovieActions = {
 		});
 		MoviesAPIUtils.deleteMovie(id);
 		return MovieActionTypes.DELETE_MOVIE;
+	},
+	signIn(body) {
+		AppDispatcher.handleViewAction({
+			actionType: MovieActionTypes.SIGN_IN
+		});
+		MoviesAPIUtils.signIn(body);
+		return MovieActionTypes.SIGN_IN;
+	},
+	signOut() {
+		AppDispatcher.handleViewAction({
+			actionType: MovieActionTypes.SIGN_OUT
+		});
+		MoviesAPIUtils.signOut();
+		return MovieActionTypes.SIGN_OUT;
+	},
+	signUp(body) {
+		AppDispatcher.handleViewAction({
+			actionType: MovieActionTypes.SIGN_UP
+		});
+		MoviesAPIUtils.signUp(body);
+		return MovieActionTypes.SIGN_UP;
 	}
 };
 

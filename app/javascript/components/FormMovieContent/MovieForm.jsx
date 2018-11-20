@@ -177,7 +177,6 @@ class MovieForm extends Component {
 	}
 
 	onDrop(picture) {
-		console.log(picture);
 		if (picture && picture.length > 0) {
 			const root = this;
 
@@ -202,7 +201,6 @@ class MovieForm extends Component {
 		this.setState({ isShowLoading: true, message: 'Saving data...' });
 		e.preventDefault();
 		e.stopPropagation();
-		console.log('A name was submitted: ', this.state);
 		let body = {
 			title: this.state.title,
 			genre: this.state.genre,
@@ -215,66 +213,8 @@ class MovieForm extends Component {
 		if (this.state.id && this.state.id >= 0) {
 			body.id = this.state.id;
 			this.action_name = MovieActions.editMovie(this.state.id, body);
-			/*fetch(`/movies/${this.state.id}`, {
-				method: 'PUT',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: body
-			})
-				.then(response => {
-					return response.json();
-				})
-				.then(movie => {
-					console.log('updates', movie);
-					setTimeout(() => {
-						this.setState({
-							isShowLoading: false,
-							notification: {
-								isShowLoading: true,
-								title: 'Success',
-								message: 'Data movie saved',
-								action: () => this.setState({ notification: { isShowLoading: false } }),
-								type: 'success'
-							}
-						});
-					}, 900);
-				});*/
 		} else {
 			this.action_name = MovieActions.addMovie(body);
-			/*console.log('updates', body);
-			fetch('/movies', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: body
-			})
-				.then(response => {
-					return response.json();
-				})
-				.then(movie => {
-					console.log('added', movie);
-					setTimeout(() => {
-						this.setState({
-							isShowLoading: false,
-							title: '',
-							genre: '',
-							duration: 0,
-							directed_by: '',
-							synopsis: '',
-							price: 0,
-							img: '',
-							notification: {
-								isShowLoading: true,
-								title: 'Success',
-								message: 'Data movie saved',
-								action: () => this.setState({ notification: { isShowLoading: false } }),
-								type: 'success'
-							}
-						});
-					}, 900);
-				});*/
 		}
 	}
 	render() {
