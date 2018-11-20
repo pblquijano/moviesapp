@@ -15,23 +15,26 @@
  */
 @font-face {
 	font-family: 'Roboto-Bold';
-	src: url('Roboto-Bold.eot');
-	src: url('Roboto-Bold.eot?#iefix') format('embedded-opentype'), url('Roboto-Bold.woff2') format('woff2'), url('Roboto-Bold.woff') format('woff'),
-		url('Roboto-Bold.ttf') format('truetype'), url('Roboto-Bold.svg#Roboto-Bold') format('svg');
+	src: font-url('Roboto/Roboto-Bold.eot');
+	src: font-url('Roboto/Roboto-Bold.eot?#iefix') format('embedded-opentype'), font-url('Roboto/Roboto-Bold.woff2') format('woff2'),
+		font-url('Roboto/Roboto-Bold.woff') format('woff'), font-url('Roboto/Roboto-Bold.ttf') format('truetype'),
+		font-url('Roboto/Roboto-Bold.svg#Roboto-Bold') format('svg');
 }
 
 @font-face {
 	font-family: 'Roboto-Regular';
-	src: url('Roboto-Regular.eot');
-	src: url('Roboto-Regular.eot?#iefix') format('embedded-opentype'), url('Roboto-Regular.woff2') format('woff2'), url('Roboto-Regular.woff') format('woff'),
-		url('Roboto-Regular.ttf') format('truetype'), url('Roboto-Regular.svg#Roboto-Regular') format('svg');
+	src: font-url('Roboto/Roboto-Regular.eot');
+	src: font-url('Roboto/Roboto-Regular.eot?#iefix') format('embedded-opentype'), font-url('Roboto/Roboto-Regular.woff2') format('woff2'),
+		font-url('Roboto/Roboto-Regular.woff') format('woff'), font-url('Roboto/Roboto-Regular.ttf') format('truetype'),
+		font-url('Roboto/Roboto-Regular.svg#Roboto-Regular') format('svg');
 }
 
 @font-face {
 	font-family: 'Roboto-Light';
-	src: url('Roboto-Light.eot');
-	src: url('Roboto-Light.eot?#iefix') format('embedded-opentype'), url('Roboto-Light.woff2') format('woff2'), url('Roboto-Light.woff') format('woff'),
-		url('Roboto-Light.ttf') format('truetype'), url('Roboto-Light.svg#Roboto-Light') format('svg');
+	src: font-url('Roboto/Roboto-Light.eot');
+	src: font-url('Roboto/Roboto-Light.eot?#iefix') format('embedded-opentype'), font-url('Roboto/Roboto-Light.woff2') format('woff2'),
+		font-url('Roboto/Roboto-Light.woff') format('woff'), font-url('Roboto/Roboto-Light.ttf') format('truetype'),
+		font-url('Roboto/Roboto-Light.svg#Roboto-Light') format('svg');
 }
 
 html,
