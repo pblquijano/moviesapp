@@ -38,10 +38,4 @@ Run the next line to start Ruby on Rails:
 rails s
 ```
 
-Then run in other terminal to start the Webpacher Server:
-
-```
-ruby ./bin/webpack-dev-server
-```
-
 The app should now be running on localhost:3000.
